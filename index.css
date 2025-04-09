@@ -9,37 +9,90 @@ body{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
   
-  body div{
+  body main{
     height: auto;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center;
+    flex-direction: column;
   }
   
-a{
-    color: white;
-    text-decoration: none;
-    font-size: 25px;
-}
-
-  body div div{
-    background-color: red;
-    height: 30px;
-    width: 40px;
-    margin-left: 9px;
+  section{
+    height: 300px;
+    width: 250px;
+    background-color: brown;
+    border-radius: 10px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  #answer{
+    color: black;
     border-radius: 5px;
+    margin-top: 10px;
+    background-color: white;
+    width: 80%;
+    height: 20%;
+    display: flex;
+    justify-content: end;
+    padding-right: 10px;
+    align-items: center;
+    }
+  
+  #teclado{
+    border-radius: 5px;
+    margin-top: 10px;
+    background-color: rgb(122, 33, 33);
+    height: 70%;
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .conversiones{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .conversiones div{
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: brown;
+    height: 30px;
+    width: 30px;
+    font-size: 15px;
+    border-radius: 50%;
+    margin: 5px 10px;
   }
   
-  .Flecha {
-    width: 0;
-    height: 0;
-    border-top: 7px solid transparent;
-    border-bottom: 7px solid transparent;
-    border-left: 10px solid white;
+  #numeros{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
   }
-
-  .copyright{
-    margin-top: 10px;
+  
+  #numeros div{
+    display: flex;
+    flex-direction: row;
   }
+  
+  #numeros div div , .cero{
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: brown;
+    height: 30px;
+    width: 30px;
+    font-size: 15px;
+    border-radius: 50%;
+    margin: 5px 10px;
+  }
+  
