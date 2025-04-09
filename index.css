@@ -18,6 +18,12 @@ body{
     text-align: center;
   }
   
+a{
+    color: white;
+    text-decoration: none;
+    font-size: 25px;
+}
+
   body div div{
     background-color: red;
     height: 30px;
@@ -32,4 +38,8 @@ body{
     border-top: 7px solid transparent;
     border-bottom: 7px solid transparent;
     border-left: 10px solid white;
+  }
+
+  .copyright{
+    margin-top: 10px;
   }
