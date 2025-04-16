@@ -69,6 +69,7 @@ body{
     font-size: 15px;
     border-radius: 50%;
     margin: 5px 10px;
+    transition: all .2s ease-in;
   }
   
   #numeros{
@@ -94,5 +95,9 @@ body{
     font-size: 15px;
     border-radius: 50%;
     margin: 5px 10px;
+    transition: all .2s ease-in;
   }
   
+  #numeros div div:hover, .conversiones div:hover{
+    background-color: rgb(147, 38, 38);
+  }

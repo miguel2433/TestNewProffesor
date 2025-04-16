@@ -23,20 +23,28 @@ divsNumeros.forEach(div => {
 });
 
 let operadores = ['+', '-', 'x', '/'];
+//lista de caracteres "10x4+5"
 function igualA(answer) {
   let tokens = [];
   for (let i = 0; i < answer.length; i++) {
     tokens.push(operadores.includes(answer[i]) ? answer[i] : parseFloat(answer[i]));
   }
   console.log(tokens);
-
+  
+  // [1,0,"x",4,"+",5]
   for (let i = 0; i < tokens.length; i++) {
+    // tokens[i] => i = 0 => tokens[0] = 1, tokens[i + 1] => tokens[0 + 1] => tokens[1] = 0 
     if (typeof tokens[i] === 'number' && typeof tokens[i + 1] === 'number') {
-      // los conviertes a string, los concatenas y vuelves a parsear
+      // '' + 1 + 0 = '10'
       let combinado = parseFloat('' + tokens[i] + tokens[i + 1]);
+      // tokens => i = 0, tokens[0] = 1 => combinado = 10; tokens[0] = 10
+      // [10,0,"x",4,"+",5]
       tokens[i] = combinado;
-
+      
+      //i = 0, tokens[0 + 1], (tokens[1], cuantos se borran = 1) solo se borrara el token[1] en este caso
+      //[10,"x",4,"+",5]  
       tokens.splice(i + 1, 1);
+      
       // retrocedes un paso para detectar caso de más de dos dígitos
       i--;
     }
