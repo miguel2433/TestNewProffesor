@@ -10,7 +10,6 @@ divsNumeros.forEach(div => {
       answer.textContent = '';
     }
 
-
     if (div.textContent.trim() === '=') {
       const resultadoFinal = igualA(answer.textContent.trim());
       answer.textContent = resultadoFinal;
@@ -23,38 +22,50 @@ divsNumeros.forEach(div => {
   });
 });
 
+let operadores = ['+', '-', 'x', '/'];
 function igualA(answer) {
-  let resultado = 0;
-  let operador = '';
-  let numero = '';
-  let operadores = ['+', '-', 'x', '/'];
-
+  let tokens = [];
   for (let i = 0; i < answer.length; i++) {
-    let valor = answer[i];
+    tokens.push(operadores.includes(answer[i]) ? answer[i] : parseFloat(answer[i]));
+  }
+  console.log(tokens);
 
-    if (operadores.includes(valor)) {
-      let num = parseFloat(numero);
-      numero = '';
+  for (let i = 0; i < tokens.length; i++) {
+    if (typeof tokens[i] === 'number' && typeof tokens[i + 1] === 'number') {
+      // los conviertes a string, los concatenas y vuelves a parsear
+      let combinado = parseFloat('' + tokens[i] + tokens[i + 1]);
+      tokens[i] = combinado;
 
-      if (operador === '') {
-        resultado = num;
-      } else {
-        resultado = operar(resultado, num, operador);
-      }
-
-      operador = valor;
-    } else {
-      numero += valor;
+      tokens.splice(i + 1, 1);
+      // retrocedes un paso para detectar caso de más de dos dígitos
+      i--;
     }
   }
+  console.log(tokens);
 
-  // Último número
-  if (numero !== '') {
-    let num = parseFloat(numero);
-    resultado = operar(resultado, num, operador);
+  for (let i = 0; i < tokens.length; i++) {
+    if (tokens[i] === 'x' || tokens[i] === '/') {
+      let operacion = tokens[i];
+      let a = tokens[i - 1];
+      let b = tokens[i + 1];
+      let resultado = operacion === 'x' ? a * b : a / b;
+
+      // Reemplazar los 3 elementos: [a, operador, b] por el resultado
+      tokens.splice(i - 1, 3, resultado);
+      i--; // Retrocedemos para revisar de nuevo en caso de operaciones seguidas
+    }
+  }
+  console.log(tokens)
+  // Paso 3: Resolver sumas y restas
+  let total = tokens[0];
+  for (let i = 1; i < tokens.length; i += 2) {
+    let operacion = tokens[i];
+    let numero = tokens[i + 1];
+    if (operacion === '+') total += numero;
+    if (operacion === '-') total -= numero;
   }
 
-  return resultado;
+  return total;
 }
 
 function operar(a, b, operador) {

@@ -83,7 +83,7 @@ body{
     flex-direction: row;
   }
   
-  #numeros div div , .cero{
+  #numeros div div{
     cursor: pointer;
     display: flex;
     justify-content: center;
