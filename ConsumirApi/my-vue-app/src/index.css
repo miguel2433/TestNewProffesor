@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+:root {
+  --backgroundFooter: #61a6d8;
+  --backgroundNavbar: #6390b1;
+  --bacgroundColor: #2f5774;
+  --TextColor: #ffffff;
+  --TextColorTitle: #256d8f;
+}
+#root{
+  @apply grid grid-cols-[auto] grid-rows-[15vh_auto_20vh] min-h-screen min-w-[100%];
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  background-color: var(--bacgroundColor);
+}
+
+body {
+  color: var(--TextColor);
+  min-height: 100vh;
+}
+
+header {
+  @apply grid grid-cols-[20vw_auto_20vw];
+  background-color: var(--bacgroundColor);
+  color: var(--TextColor);
+  background-color: var(--backgroundNavbar);
+}
+
+footer {
+  @apply flex flex-col justify-center items-center;
+  background-color: var(--backgroundNavbar);
+  color: var(--TextColor)
+}
+
+main{
+  @apply flex justify-center items-center flex-col h-auto;
+}
+
+nav {
+  @apply flex justify-center items-center;
+}
+
+.Titulo {
+  @apply text-6xl font-bold;
+  color: var(--TextColorTitle);
+}
+
+.SubTitulos {
+  @apply text-xl font-medium;
+  color: var(--TextColorTitle);
+}
+
+
